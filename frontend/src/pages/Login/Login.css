@@ -1,0 +1,2231 @@
+
+
+:root {
+
+  --aqar-dark: #03251d;
+
+  --aqar-deep: #041d17;
+
+  --aqar-green: #07513c;
+
+  --aqar-green-light: #0b6a4d;
+
+  --aqar-gold: #d4ad4d;
+
+  --aqar-gold-light: #f6d878;
+
+  --aqar-white: #faf9f3;
+
+  --aqar-text: #073529;
+
+}
+
+/* =========================================
+
+   الإعدادات العامة
+
+\========================================= */
+
+.login-page {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+
+      circle at 78% 18%,
+
+      rgba(38, 107, 78, 0.42),
+
+      transparent 32%
+
+    ),
+
+    linear-gradient(
+
+      135deg,
+
+      #063d2e 0%,
+
+      #032b21 42%,
+
+      #041d17 100%
+
+    );
+
+  color: white;
+
+  font-family: "Cairo", sans-serif;
+
+}
+
+.login-page *,
+
+.login-page *::before,
+
+.login-page *::after {
+
+  box-sizing: border-box;
+
+}
+
+/* =========================================
+
+   خلفية الصفحة
+
+\========================================= */
+
+.login-background {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+
+.login-glow {
+
+  position: absolute;
+
+  border-radius: 999px;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+
+}
+
+.login-glow-top {
+
+  width: 620px;
+
+  height: 620px;
+
+  top: -340px;
+
+  right: -180px;
+
+  background: rgba(212, 173, 77, 0.11);
+
+}
+
+.login-glow-bottom {
+
+  width: 760px;
+
+  height: 760px;
+
+  bottom: -500px;
+
+  left: -300px;
+
+  background: rgba(10, 118, 87, 0.22);
+
+}
+
+.login-grid-pattern {
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.18;
+
+  background-image:
+
+    linear-gradient(
+
+      rgba(212, 173, 77, 0.055) 1px,
+
+      transparent 1px
+
+    ),
+
+    linear-gradient(
+
+      90deg,
+
+      rgba(212, 173, 77, 0.055) 1px,
+
+      transparent 1px
+
+    );
+
+  background-size: 72px 72px;
+
+}
+
+.login-corner {
+
+  position: absolute;
+
+  width: 340px;
+
+  height: 340px;
+
+  border: 1px solid rgba(212, 173, 77, 0.2);
+
+  border-radius: 50%;
+
+}
+
+.login-corner-top {
+
+  top: -245px;
+
+  right: -180px;
+
+}
+
+.login-corner-bottom {
+
+  bottom: -245px;
+
+  left: -180px;
+
+}
+
+/* =========================================
+
+   زر اللغة
+
+\========================================= */
+
+.language-switcher {
+
+  position: absolute;
+
+  top: 28px;
+
+  left: 34px;
+
+  z-index: 30;
+
+}
+
+.language-button {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  min-height: 46px;
+
+  padding: 0 17px;
+
+  border: 1px solid rgba(212, 173, 77, 0.45);
+
+  border-radius: 999px;
+
+  background: rgba(3, 37, 29, 0.62);
+
+  color: var(--aqar-gold-light);
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  -webkit-backdrop-filter: blur(14px);
+
+  backdrop-filter: blur(14px);
+
+  cursor: pointer;
+
+  transition:
+
+    border-color 0.25s ease,
+
+    background 0.25s ease,
+
+    transform 0.25s ease;
+
+}
+
+.language-button:hover {
+
+  border-color: var(--aqar-gold-light);
+
+  background: rgba(9, 75, 56, 0.9);
+
+  transform: translateY(-2px);
+
+}
+
+.language-arrow {
+
+  font-size: 18px;
+
+  line-height: 1;
+
+}
+
+/* =========================================
+
+   الهيكل الرئيسي
+
+\========================================= */
+
+.login-main {
+
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 84px 36px 48px;
+
+}
+
+.login-layout {
+
+  direction: ltr;
+
+  display: grid;
+
+  grid-template-columns: 520px minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 48px;
+
+  width: 100%;
+
+  max-width: 1420px;
+
+  margin: 0 auto;
+
+}
+
+/* =========================================
+
+   كارت تسجيل الدخول
+
+\========================================= */
+
+.login-section {
+
+  direction: rtl;
+
+  width: 100%;
+
+  max-width: 520px;
+
+  order: 1;
+
+}
+
+.login-card {
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 760px;
+
+  padding: 34px 30px 26px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(212, 173, 77, 0.8);
+
+  border-radius: 30px;
+
+  background:
+
+    linear-gradient(
+
+      145deg,
+
+      #fffefa 0%,
+
+      #faf9f3 55%,
+
+      #f5f1df 100%
+
+    );
+
+  box-shadow:
+
+    0 30px 90px rgba(0, 0, 0, 0.32),
+
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+
+}
+
+.login-card-top-line {
+
+  position: absolute;
+
+  top: 0;
+
+  right: 0;
+
+  left: 0;
+
+  height: 7px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+
+    90deg,
+
+    #ad8125 0%,
+
+    #f6d878 50%,
+
+    #ad8125 100%
+
+  );
+
+}
+
+/* =========================================
+
+   رأس كارت الدخول
+
+\========================================= */
+
+.login-card-header {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+}
+
+.login-logo-wrapper {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 148px;
+
+  height: 148px;
+
+  margin-top: 3px;
+
+}
+
+.login-logo {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+}
+
+.login-brand-title {
+
+  margin: 0;
+
+  margin-top: 4px;
+
+  color: var(--aqar-text);
+
+  font-size: 29px;
+
+  font-weight: 900;
+
+  line-height: 1.45;
+
+  text-align: center;
+
+}
+
+.login-brand-english {
+
+  margin-top: 1px;
+
+  color: #527267;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  text-align: center;
+
+}
+
+.login-welcome-title {
+
+  margin-top: 16px;
+
+  color: var(--aqar-text);
+
+  font-size: 27px;
+
+  font-weight: 900;
+
+  line-height: 1.5;
+
+  text-align: center;
+
+}
+
+.login-welcome-description {
+
+  margin-top: 3px;
+
+  color: #81938b;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-align: center;
+
+}
+
+/* =========================================
+
+   نموذج الدخول
+
+\========================================= */
+
+.login-form {
+
+  width: 100%;
+
+  margin-top: 28px;
+
+}
+
+.login-field {
+
+  width: 100%;
+
+  margin-bottom: 17px;
+
+}
+
+.login-field-label {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #24463b;
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  text-align: center;
+
+}
+
+.login-input-wrapper {
+
+  position: relative;
+
+  width: 100%;
+
+}
+
+.login-input {
+
+  width: 100%;
+
+  height: 58px;
+
+  padding: 0 52px 0 18px;
+
+  border: 1px solid #bfd2c9;
+
+  border-radius: 16px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #073529;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-align: right;
+
+  transition:
+
+    border-color 0.25s ease,
+
+    box-shadow 0.25s ease,
+
+    background 0.25s ease;
+
+}
+
+.login-input::placeholder {
+
+  color: #a1b1aa;
+
+  font-weight: 500;
+
+}
+
+.login-input:focus {
+
+  border-color: var(--aqar-gold);
+
+  background: #fffefa;
+
+  box-shadow: 0 0 0 4px rgba(212, 173, 77, 0.17);
+
+}
+
+.login-input:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.6;
+
+}
+
+.login-input-icon {
+
+  position: absolute;
+
+  top: 50%;
+
+  right: 18px;
+
+  z-index: 2;
+
+  color: #4b806d;
+
+  pointer-events: none;
+
+  transform: translateY(-50%);
+
+}
+
+.login-password-input {
+
+  padding-left: 56px;
+
+}
+
+.password-toggle-button {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #4b806d;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition: color 0.25s ease;
+
+}
+
+.password-toggle-button:hover {
+
+  color: #a77b20;
+
+}
+
+.password-toggle-button:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.5;
+
+}
+
+/* =========================================
+
+   خيارات الدخول
+
+\========================================= */
+
+.login-options {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 5px;
+
+  color: #587066;
+
+  font-size: 13px;
+
+}
+
+.remember-option {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+}
+
+.remember-checkbox {
+
+  width: 16px;
+
+  height: 16px;
+
+  accent-color: #c49a3a;
+
+  cursor: pointer;
+
+}
+
+.forgot-password-button {
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #0b6248;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: color 0.25s ease;
+
+}
+
+.forgot-password-button:hover {
+
+  color: #a77b20;
+
+}
+
+/* =========================================
+
+   رسالة الخطأ
+
+\========================================= */
+
+.login-error-message {
+
+  margin-top: 13px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 12px;
+
+  background: #fef2f2;
+
+  color: #dc2626;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  text-align: center;
+
+}
+
+/* =========================================
+
+   زر تسجيل الدخول
+
+\========================================= */
+
+.login-submit-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 13px;
+
+  width: 100%;
+
+  height: 58px;
+
+  margin-top: 19px;
+
+  border: 0;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+
+    90deg,
+
+    #dcb653 0%,
+
+    #c49a3a 50%,
+
+    #ad8125 100%
+
+  );
+
+  color: #092d22;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  font-weight: 900;
+
+  box-shadow: 0 9px 22px rgba(196, 154, 58, 0.23);
+
+  cursor: pointer;
+
+  transition:
+
+    transform 0.25s ease,
+
+    box-shadow 0.25s ease,
+
+    filter 0.25s ease;
+
+}
+
+.login-submit-button:hover {
+
+  filter: brightness(1.05);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 28px rgba(196, 154, 58, 0.3);
+
+}
+
+.login-submit-button:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.65;
+
+  transform: none;
+
+}
+
+.login-spinner {
+
+  width: 19px;
+
+  height: 19px;
+
+  border: 2px solid rgba(9, 45, 34, 0.3);
+
+  border-top-color: #092d22;
+
+  border-radius: 50%;
+
+  animation: login-spin 0.8s linear infinite;
+
+}
+
+@keyframes login-spin {
+
+  to {
+
+    transform: rotate(360deg);
+
+  }
+
+}
+
+/* =========================================
+
+   الفاصل
+
+\========================================= */
+
+.login-divider {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin: 17px 0;
+
+}
+
+.login-divider span {
+
+  flex: 1;
+
+  height: 1px;
+
+  background: #dce4df;
+
+}
+
+.login-divider strong {
+
+  color: #8a9a93;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+}
+
+/* =========================================
+
+   الدخول بحساب الشركة
+
+\========================================= */
+
+.company-login-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  height: 56px;
+
+  border: 1px solid #7da899;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  color: #0b6248;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition:
+
+    border-color 0.25s ease,
+
+    background 0.25s ease,
+
+    transform 0.25s ease;
+
+}
+
+.company-login-button:hover {
+
+  border-color: #c49a3a;
+
+  background: #f5f5ec;
+
+  transform: translateY(-1px);
+
+}
+
+/* =========================================
+
+   المزايا
+
+\========================================= */
+
+.login-benefits {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 8px;
+
+  margin-top: 21px;
+
+  padding-top: 19px;
+
+  border-top: 1px solid #e0e5df;
+
+}
+
+.login-benefit-item {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #b88b2d;
+
+  text-align: center;
+
+}
+
+.login-benefit-item span {
+
+  color: #71847c;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+}
+
+/* =========================================
+
+   الحساب التجريبي
+
+\========================================= */
+
+.demo-account-box {
+
+  margin-top: 17px;
+
+  padding: 12px 10px;
+
+  border: 1px solid rgba(212, 173, 77, 0.35);
+
+  border-radius: 14px;
+
+  background: #f8f3df;
+
+  text-align: center;
+
+}
+
+.demo-account-box p {
+
+  margin: 0;
+
+  color: #8a8065;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+}
+
+.demo-account-box strong {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color: #967020;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  direction: ltr;
+
+}
+
+/* =========================================
+
+   الفوتر
+
+\========================================= */
+
+.login-footer {
+
+  margin-top: 15px;
+
+  text-align: center;
+
+}
+
+.login-footer p {
+
+  margin: 0;
+
+  color: #91b0a3;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+}
+
+.login-footer span {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color: #64877a;
+
+  font-size: 10px;
+
+}
+
+/* =========================================
+
+   الكارت الزجاجي التعريفي
+
+\========================================= */
+
+.hero-section {
+
+  direction: rtl;
+
+  width: 100%;
+
+  min-width: 0;
+
+  order: 2;
+
+}
+
+.hero-panel {
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 760px;
+
+  height: 760px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(212, 173, 77, 0.42);
+
+  border-radius: 32px;
+
+  background:
+
+    linear-gradient(
+
+      135deg,
+
+      rgba(17, 91, 68, 0.76),
+
+      rgba(4, 48, 36, 0.86) 52%,
+
+      rgba(2, 29, 22, 0.96)
+
+    );
+
+  box-shadow:
+
+    0 30px 100px rgba(0, 0, 0, 0.28),
+
+    inset 0 0 100px rgba(212, 173, 77, 0.035);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  backdrop-filter: blur(10px);
+
+}
+
+/* =========================================
+
+   خلفية الكارت
+
+\========================================= */
+
+.hero-background-image {
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image: url("/aqar-smart-background.png");
+
+  background-position: center;
+
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  opacity: 0.34;
+
+}
+
+.hero-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+
+      180deg,
+
+      rgba(9, 81, 60, 0.24) 0%,
+
+      rgba(4, 48, 36, 0.38) 45%,
+
+      rgba(2, 29, 22, 0.97) 100%
+
+    );
+
+}
+
+/* =========================================
+
+   العلامة المائية
+
+\========================================= */
+
+.hero-watermark {
+
+  position: absolute;
+
+  top: 49%;
+
+  left: 50%;
+
+  z-index: 1;
+
+  width: 94%;
+
+  height: 82%;
+
+  object-fit: contain;
+
+  opacity: 0.075;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+}
+
+/* =========================================
+
+   الزخارف
+
+\========================================= */
+
+.hero-decoration {
+
+  position: absolute;
+
+  z-index: 2;
+
+  width: 260px;
+
+  height: 260px;
+
+  border: 1px solid rgba(212, 173, 77, 0.13);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+}
+
+.hero-decoration-one {
+
+  top: -190px;
+
+  right: -140px;
+
+}
+
+.hero-decoration-two {
+
+  bottom: -200px;
+
+  left: -140px;
+
+}
+
+/* =========================================
+
+   محتوى الكارت التعريفي
+
+\========================================= */
+
+.hero-content {
+
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 760px;
+
+  padding: 42px 42px 30px;
+
+  text-align: center;
+
+}
+
+/* =========================================
+
+   لوجو الكارت الزجاجي
+
+\========================================= */
+
+.hero-logo-wrapper {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 148px;
+
+  height: 148px;
+
+  padding: 7px;
+
+  border: 1px solid rgba(212, 173, 77, 0.55);
+
+  border-radius: 28px;
+
+  background: rgba(3, 43, 33, 0.52);
+
+  box-shadow:
+
+    0 15px 35px rgba(0, 0, 0, 0.2),
+
+    0 0 35px rgba(212, 173, 77, 0.06);
+
+  -webkit-backdrop-filter: blur(8px);
+
+  backdrop-filter: blur(8px);
+
+}
+
+.hero-logo {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+}
+
+/* =========================================
+
+   عناوين الكارت الزجاجي
+
+\========================================= */
+
+.hero-title {
+
+  margin-top: 15px;
+
+  color: var(--aqar-gold-light);
+
+  font-size: 34px;
+
+  font-weight: 900;
+
+  line-height: 1.4;
+
+  text-align: center;
+
+}
+
+.hero-english-title {
+
+  margin-top: 2px;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+
+  text-align: center;
+
+}
+
+.hero-subtitle {
+
+  margin-top: 4px;
+
+  color: #c1d8cf;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-align: center;
+
+}
+
+.hero-management-title {
+
+  margin-top: 17px;
+
+  color: var(--aqar-gold);
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.19em;
+
+  text-align: center;
+
+}
+
+.hero-main-title {
+
+  margin-top: 21px;
+
+  color: white;
+
+  font-size: clamp(38px, 3.2vw, 53px);
+
+  font-weight: 900;
+
+  line-height: 1.45;
+
+  text-align: center;
+
+}
+
+.hero-main-title span {
+
+  color: var(--aqar-gold-light);
+
+}
+
+.hero-description {
+
+  max-width: 680px;
+
+  margin-top: 17px;
+
+  color: #c1d8cf;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  line-height: 2.1;
+
+  text-align: center;
+
+}
+
+/* =========================================
+
+   بطاقات المزايا
+
+\========================================= */
+
+.hero-features {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+
+  width: 100%;
+
+  margin-top: auto;
+
+  padding-top: 30px;
+
+}
+
+.hero-feature-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 118px;
+
+  padding: 12px 8px;
+
+  border: 1px solid rgba(212, 173, 77, 0.6);
+
+  border-radius: 19px;
+
+  background: rgba(3, 43, 33, 0.72);
+
+  text-align: center;
+
+  -webkit-backdrop-filter: blur(8px);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+
+    transform 0.25s ease,
+
+    border-color 0.25s ease,
+
+    background 0.25s ease;
+
+}
+
+.hero-feature-card:hover {
+
+  border-color: var(--aqar-gold-light);
+
+  background: rgba(10, 64, 49, 0.92);
+
+  transform: translateY(-4px);
+
+}
+
+.hero-feature-icon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 58px;
+
+  height: 58px;
+
+  margin-bottom: 9px;
+
+  border: 1px solid rgba(212, 173, 77, 0.72);
+
+  border-radius: 16px;
+
+  background: rgba(212, 173, 77, 0.08);
+
+  color: var(--aqar-gold-light);
+
+}
+
+.hero-feature-card span {
+
+  color: #e0eee8;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  text-align: center;
+
+}
+
+/* =========================================
+
+   الصورة السفلية
+
+\========================================= */
+
+.hero-bottom-image {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 178px;
+
+  min-height: 178px;
+
+  margin-top: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(212, 173, 77, 0.42);
+
+  border-radius: 22px;
+
+}
+
+.hero-bottom-background {
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image: url("/aqar-smart-background.png");
+
+  background-position: center;
+
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+}
+
+.hero-bottom-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+
+      0deg,
+
+      rgba(3, 37, 29, 0.98),
+
+      rgba(3, 37, 29, 0.12),
+
+      transparent
+
+    );
+
+}
+
+.hero-bottom-content {
+
+  position: absolute;
+
+  right: 0;
+
+  bottom: 20px;
+
+  left: 0;
+
+  z-index: 3;
+
+  text-align: center;
+
+}
+
+.hero-bottom-content p {
+
+  margin: 0;
+
+  color: var(--aqar-gold-light);
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  text-align: center;
+
+}
+
+.hero-bottom-content span {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color: #e0eee8;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-align: center;
+
+}
+
+/* =========================================
+
+   الشاشات المتوسطة
+
+\========================================= */
+
+@media (max-width: 1350px) {
+
+  .login-main {
+
+    padding-right: 24px;
+
+    padding-left: 24px;
+
+  }
+
+  .login-layout {
+
+    grid-template-columns: 470px minmax(0, 1fr);
+
+    gap: 30px;
+
+    max-width: 1240px;
+
+  }
+
+  .login-card {
+
+    min-height: 700px;
+
+    padding: 30px 25px 23px;
+
+  }
+
+  .hero-panel,
+
+  .hero-content {
+
+    min-height: 700px;
+
+    height: 700px;
+
+  }
+
+  .hero-content {
+
+    padding: 32px 28px 25px;
+
+  }
+
+  .hero-logo-wrapper {
+
+    width: 120px;
+
+    height: 120px;
+
+  }
+
+  .hero-title {
+
+    font-size: 29px;
+
+  }
+
+  .hero-main-title {
+
+    font-size: 39px;
+
+  }
+
+  .hero-description {
+
+    font-size: 14px;
+
+  }
+
+  .hero-feature-card {
+
+    min-height: 100px;
+
+  }
+
+  .hero-feature-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+  }
+
+  .hero-feature-icon svg {
+
+    width: 28px;
+
+    height: 28px;
+
+  }
+
+}
+
+/* =========================================
+
+   التابلت والمقاسات الصغيرة
+
+\========================================= */
+
+@media (max-width: 1050px) {
+
+  .login-main {
+
+    padding-top: 100px;
+
+  }
+
+  .login-layout {
+
+    grid-template-columns: 1fr;
+
+    max-width: 600px;
+
+    gap: 34px;
+
+  }
+
+  .login-section,
+
+  .hero-section {
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+  }
+
+  .login-section {
+
+    order: 1;
+
+  }
+
+  .hero-section {
+
+    order: 2;
+
+  }
+
+  .login-card {
+
+    min-height: 0;
+
+  }
+
+  .hero-panel {
+
+    height: auto;
+
+    min-height: 700px;
+
+  }
+
+  .hero-content {
+
+    height: auto;
+
+    min-height: 700px;
+
+  }
+
+}
+
+/* =========================================
+
+   الموبايل
+
+\========================================= */
+
+@media (max-width: 640px) {
+
+  .language-switcher {
+
+    top: 18px;
+
+    left: 16px;
+
+  }
+
+  .language-button {
+
+    min-height: 40px;
+
+    padding: 0 12px;
+
+    font-size: 12px;
+
+  }
+
+  .login-main {
+
+    padding: 82px 13px 30px;
+
+  }
+
+  .login-layout {
+
+    gap: 25px;
+
+  }
+
+  .login-card {
+
+    padding: 28px 18px 21px;
+
+    border-radius: 25px;
+
+  }
+
+  .login-logo-wrapper {
+
+    width: 115px;
+
+    height: 115px;
+
+  }
+
+  .login-brand-title {
+
+    font-size: 25px;
+
+  }
+
+  .login-welcome-title {
+
+    font-size: 23px;
+
+  }
+
+  .login-welcome-description {
+
+    font-size: 12px;
+
+  }
+
+  .login-field-label {
+
+    font-size: 13px;
+
+  }
+
+  .login-input {
+
+    height: 53px;
+
+    font-size: 13px;
+
+  }
+
+  .login-options {
+
+    font-size: 11px;
+
+  }
+
+  .forgot-password-button {
+
+    font-size: 11px;
+
+  }
+
+  .hero-panel {
+
+    min-height: 650px;
+
+    border-radius: 25px;
+
+  }
+
+  .hero-content {
+
+    min-height: 650px;
+
+    padding: 27px 16px 20px;
+
+  }
+
+  .hero-logo-wrapper {
+
+    width: 105px;
+
+    height: 105px;
+
+  }
+
+  .hero-title {
+
+    font-size: 27px;
+
+  }
+
+  .hero-english-title {
+
+    font-size: 15px;
+
+  }
+
+  .hero-subtitle {
+
+    font-size: 12px;
+
+  }
+
+  .hero-management-title {
+
+    font-size: 10px;
+
+    letter-spacing: 0.1em;
+
+  }
+
+  .hero-main-title {
+
+    margin-top: 16px;
+
+    font-size: 31px;
+
+  }
+
+  .hero-description {
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+  }
+
+  .hero-features {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+
+    padding-top: 22px;
+
+  }
+
+  .hero-feature-card {
+
+    min-height: 105px;
+
+  }
+
+  .hero-feature-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    margin-bottom: 7px;
+
+  }
+
+  .hero-feature-icon svg {
+
+    width: 25px;
+
+    height: 25px;
+
+  }
+
+  .hero-feature-card span {
+
+    font-size: 11px;
+
+  }
+
+  .hero-bottom-image {
+
+    height: 130px;
+
+    min-height: 130px;
+
+  }
+
+  .hero-bottom-content {
+
+    bottom: 14px;
+
+  }
+
+  .hero-bottom-content p {
+
+    font-size: 12px;
+
+  }
+
+  .hero-bottom-content span {
+
+    font-size: 10px;
+
+  }
+
+}
+
+/* =========================================
+
+   تقليل الحركة
+
+\========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE OVERRIDES
+   ========================================================= */
+
+.login-page,
+.login-page * {
+  box-sizing: border-box;
+}
+
+.login-page {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+  .login-page {
+    padding: 24px;
+  }
+
+  .login-page .login-container,
+  .login-page .login-content,
+  .login-page .login-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    min-height: 100dvh;
+    padding: 16px;
+  }
+
+  .login-page .login-container {
+    width: 100%;
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .login-page .login-branding,
+  .login-page .login-side,
+  .login-page .login-illustration {
+    display: none;
+  }
+
+  .login-page .login-card,
+  .login-page .login-form-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+
+  .login-page input,
+  .login-page button,
+  .login-page select {
+    min-height: 46px;
+    max-width: 100%;
+  }
+
+  .login-page h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.35;
+  }
+
+  .login-page p {
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 420px) {
+  .login-page {
+    padding: 10px;
+  }
+
+  .login-page .login-card,
+  .login-page .login-form-card {
+    padding: 20px 14px;
+    border-radius: 18px;
+  }
+
+  .login-page button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-page *,
+  .login-page *::before,
+  .login-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

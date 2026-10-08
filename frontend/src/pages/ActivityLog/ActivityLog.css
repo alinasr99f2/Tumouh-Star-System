@@ -1,0 +1,1523 @@
+/* =========================================================
+   AQARY SMART ERP
+   ACTIVITY LOG
+========================================================= */
+
+.activity-page {
+  min-height: 100%;
+  padding: 26px 30px 45px;
+  color: #f5f4eb;
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(27, 111, 89, 0.16),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #022c25 0%,
+      #003b30 45%,
+      #002820 100%
+    );
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.activity-hero {
+  min-height: 150px;
+
+  position: relative;
+
+  border: 1px solid rgba(211, 168, 47, 0.65);
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  margin-bottom: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 46, 37, 0.96),
+      rgba(0, 62, 50, 0.90)
+    ),
+    url("/aqar-smart-background.png");
+
+  background-size: cover;
+  background-position: center;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.22),
+    inset 0 0 70px rgba(0, 0, 0, 0.16);
+}
+
+
+.activity-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 10% 50%,
+      rgba(212, 169, 48, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 36, 29, 0.20)
+    );
+}
+
+
+.activity-hero-content {
+  position: relative;
+
+  min-height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px 30px;
+}
+
+
+.activity-hero-text {
+  text-align: right;
+  margin-right: 8px;
+}
+
+
+.erp-badge {
+  display: inline-flex;
+
+  padding: 6px 14px;
+
+  border: 1px solid rgba(215, 173, 53, 0.55);
+  border-radius: 30px;
+
+  background: rgba(22, 54, 43, 0.75);
+
+  color: #e5c84d;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  margin-bottom: 9px;
+}
+
+
+.activity-hero h1 {
+  margin: 0;
+
+  font-size: clamp(28px, 3vw, 42px);
+
+  font-weight: 900;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+.activity-hero p {
+  margin: 7px 0 0;
+
+  color: rgba(238, 244, 238, 0.78);
+
+  font-size: 14px;
+}
+
+
+.activity-hero-icon {
+  width: 74px;
+  height: 74px;
+
+  border: 1px solid rgba(221, 177, 49, 0.75);
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e8c650;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 92, 68, 0.80),
+      rgba(19, 57, 44, 0.75)
+    );
+
+  box-shadow:
+    inset 0 0 25px rgba(226, 182, 48, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.activity-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+
+.stat-card {
+  min-height: 92px;
+
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+
+  padding: 17px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 68, 55, 0.80),
+      rgba(3, 48, 40, 0.78)
+    );
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.10);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(219, 177, 49, 0.45);
+}
+
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.stat-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+
+.stat-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.stat-info span {
+  font-size: 12px;
+
+  color:
+    rgba(235, 241, 237, 0.66);
+}
+
+
+.stat-info strong {
+  font-size: 25px;
+
+  font-weight: 900;
+
+  color: #e8c34c;
+}
+
+
+.stat-total {
+  border-color:
+    rgba(213, 170, 43, 0.35);
+}
+
+
+.stat-total .stat-icon {
+  background: rgba(212, 171, 46, 0.10);
+  color: #e6c04b;
+}
+
+
+.stat-today {
+  border-color:
+    rgba(38, 166, 132, 0.32);
+}
+
+
+.stat-today .stat-icon {
+  background: rgba(29, 180, 139, 0.10);
+  color: #50d6ad;
+}
+
+
+.stat-users {
+  border-color:
+    rgba(42, 153, 213, 0.34);
+}
+
+
+.stat-users .stat-icon {
+  background: rgba(35, 142, 210, 0.12);
+  color: #58b7ed;
+}
+
+
+.stat-last {
+  border-color:
+    rgba(115, 103, 220, 0.35);
+}
+
+
+.stat-last .stat-icon {
+  background: rgba(117, 104, 220, 0.13);
+  color: #9e94ef;
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.activity-filters {
+  display: grid;
+
+  grid-template-columns:
+    1.45fr
+    1.25fr
+    1fr
+    1fr
+    1fr
+    auto;
+
+  gap: 10px;
+
+  align-items: end;
+
+  padding: 18px;
+
+  margin-bottom: 18px;
+
+  border-radius: 17px;
+
+  border: 1px solid rgba(43, 134, 109, 0.32);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(4, 56, 45, 0.90),
+      rgba(2, 43, 36, 0.88)
+    );
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+.filter-item,
+.filter-search {
+  min-width: 0;
+}
+
+
+.filter-item label,
+.filter-search label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    rgba(238, 243, 239, 0.68);
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.search-box,
+.select-box,
+.date-range {
+  height: 43px;
+
+  border: 1px solid rgba(74, 152, 127, 0.38);
+
+  border-radius: 9px;
+
+  background:
+    rgba(1, 42, 35, 0.80);
+
+  color: #e8eee9;
+
+  display: flex;
+  align-items: center;
+}
+
+
+.search-box {
+  padding: 0 12px;
+
+  gap: 8px;
+}
+
+
+.search-box svg {
+  color: #77a998;
+
+  flex-shrink: 0;
+}
+
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #fff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+
+.search-box input::placeholder {
+  color:
+    rgba(219, 230, 225, 0.38);
+}
+
+
+.select-box {
+  position: relative;
+
+  padding: 0 10px;
+
+  gap: 7px;
+}
+
+
+.select-box > svg:first-child {
+  color: #78a997;
+}
+
+
+.select-box > svg:last-child {
+  position: absolute;
+
+  left: 8px;
+
+  pointer-events: none;
+
+  color: #9bb6ab;
+}
+
+
+.select-box select {
+  width: 100%;
+
+  appearance: none;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #eef3ef;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  padding-left: 18px;
+}
+
+
+.select-box select option {
+  background: #063b30;
+
+  color: #fff;
+}
+
+
+.date-range {
+  padding: 0 9px;
+
+  gap: 7px;
+
+  font-size: 11px;
+}
+
+
+.date-range div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  white-space: nowrap;
+}
+
+
+.date-range svg {
+  color: #d7b33c;
+}
+
+
+.date-range span {
+  color: #648d80;
+}
+
+
+.reset-button {
+  height: 43px;
+
+  padding: 0 17px;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(215, 173, 50, 0.60);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(181, 143, 31, 0.95),
+      rgba(217, 176, 48, 0.95)
+    );
+
+  color: #14372c;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  white-space: nowrap;
+
+  transition: 0.2s ease;
+}
+
+
+.reset-button:hover {
+  filter: brightness(1.08);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.activity-table-card {
+  border: 1px solid rgba(43, 134, 109, 0.34);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(3, 55, 45, 0.94),
+      rgba(2, 40, 34, 0.94)
+    );
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.table-header {
+  min-height: 82px;
+
+  padding: 15px 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom:
+    1px solid rgba(71, 137, 117, 0.18);
+}
+
+
+.table-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.table-title > svg {
+  color: #e0bb3d;
+}
+
+
+.table-title h2 {
+  margin: 0;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  color: #fff;
+}
+
+
+.table-title p {
+  margin: 4px 0 0;
+
+  font-size: 11px;
+
+  color: rgba(221, 233, 227, 0.55);
+}
+
+
+.table-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.refresh-button,
+.export-button {
+  height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.refresh-button {
+  border:
+    1px solid rgba(27, 150, 119, 0.55);
+
+  background:
+    rgba(5, 76, 61, 0.80);
+
+  color: #c9ddd5;
+}
+
+
+.export-button {
+  border:
+    1px solid rgba(218, 174, 47, 0.70);
+
+  background:
+    rgba(164, 128, 24, 0.14);
+
+  color: #e4c34d;
+}
+
+
+.refresh-button:hover,
+.export-button:hover {
+  transform: translateY(-1px);
+
+  filter: brightness(1.1);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.activity-table-wrapper {
+  overflow-x: auto;
+}
+
+
+.activity-table {
+  width: 100%;
+
+  min-width: 980px;
+
+  border-collapse: collapse;
+
+  direction: rtl;
+}
+
+
+.activity-table thead {
+  background:
+    rgba(1, 35, 29, 0.72);
+}
+
+
+.activity-table th {
+  padding: 13px 12px;
+
+  color:
+    rgba(214, 229, 222, 0.68);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  border-bottom:
+    1px solid rgba(68, 131, 112, 0.20);
+}
+
+
+.activity-table td {
+  padding: 11px 12px;
+
+  border-bottom:
+    1px solid rgba(69, 125, 108, 0.13);
+
+  font-size: 11px;
+
+  color:
+    rgba(239, 244, 241, 0.84);
+
+  vertical-align: middle;
+}
+
+
+.activity-table tbody tr {
+  transition:
+    background 0.18s ease;
+}
+
+
+.activity-table tbody tr:hover {
+  background:
+    rgba(42, 122, 99, 0.09);
+}
+
+
+.row-number {
+  color:
+    rgba(171, 197, 187, 0.52);
+
+  width: 45px;
+}
+
+
+.date-cell {
+  min-width: 130px;
+}
+
+
+.date-cell strong {
+  display: block;
+
+  color: #dce9e4;
+
+  font-size: 11px;
+}
+
+
+.date-cell span {
+  display: block;
+
+  margin-top: 3px;
+
+  color:
+    rgba(176, 203, 193, 0.50);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   USER
+========================================================= */
+
+.user-cell {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 120px;
+}
+
+
+.user-avatar {
+  width: 31px;
+  height: 31px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #d4aa37,
+      #8b6d1c
+    );
+
+  color: #fff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+}
+
+
+.user-cell strong {
+  display: block;
+
+  color: #fff;
+
+  font-size: 11px;
+}
+
+
+.user-cell span {
+  display: block;
+
+  margin-top: 2px;
+
+  color:
+    rgba(189, 208, 201, 0.50);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   ACTIVITY BADGES
+========================================================= */
+
+.activity-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  min-width: 76px;
+
+  justify-content: center;
+
+  padding: 6px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+.activity-login {
+  background: rgba(21, 176, 124, 0.16);
+  color: #45d49f;
+}
+
+
+.activity-add {
+  background: rgba(24, 177, 102, 0.16);
+  color: #47d68d;
+}
+
+
+.activity-edit {
+  background: rgba(211, 169, 40, 0.17);
+  color: #e5c044;
+}
+
+
+.activity-delete {
+  background: rgba(203, 68, 68, 0.17);
+  color: #ef7777;
+}
+
+
+.activity-view {
+  background: rgba(28, 143, 220, 0.17);
+  color: #62b8ed;
+}
+
+
+.activity-upload {
+  background: rgba(139, 84, 213, 0.18);
+  color: #bd94ed;
+}
+
+
+.activity-permission {
+  background: rgba(225, 174, 35, 0.17);
+  color: #e7c14b;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section-name {
+  color:
+    rgba(212, 227, 220, 0.76);
+
+  white-space: nowrap;
+}
+
+
+.details-cell {
+  min-width: 260px;
+
+  color:
+    rgba(232, 239, 235, 0.72) !important;
+}
+
+
+/* =========================================================
+   IP
+========================================================= */
+
+.ip-cell {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color:
+    rgba(181, 207, 198, 0.57);
+
+  direction: ltr;
+
+  white-space: nowrap;
+}
+
+
+.ip-cell svg {
+  color:
+    rgba(132, 170, 157, 0.58);
+}
+
+
+/* =========================================================
+   MORE
+========================================================= */
+
+.more-button {
+  width: 31px;
+  height: 31px;
+
+  border-radius: 8px;
+
+  border:
+    1px solid rgba(88, 139, 123, 0.27);
+
+  background:
+    rgba(19, 76, 62, 0.55);
+
+  color:
+    rgba(218, 230, 224, 0.70);
+
+  font-family: inherit;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  letter-spacing: 2px;
+
+  transition: 0.2s ease;
+}
+
+
+.more-button:hover {
+  border-color:
+    rgba(218, 177, 52, 0.55);
+
+  color: #e3c04a;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty-activity {
+  min-height: 250px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #72988c;
+}
+
+
+.empty-activity svg {
+  margin-bottom: 10px;
+
+  color: #bd9a2d;
+}
+
+
+.empty-activity h3 {
+  margin: 0 0 4px;
+
+  color: #dce8e2;
+}
+
+
+.empty-activity p {
+  margin: 0;
+
+  color: #719488;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1250px) {
+
+  .activity-filters {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .reset-button {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .activity-page {
+    padding: 18px;
+  }
+
+  .activity-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .activity-filters {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-search {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .activity-page {
+    padding: 12px;
+  }
+
+  .activity-hero-content {
+    padding: 20px;
+  }
+
+  .activity-hero-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .activity-hero h1 {
+    font-size: 28px;
+  }
+
+  .activity-hero p {
+    font-size: 11px;
+  }
+
+  .activity-stats {
+    grid-template-columns:
+      1fr;
+  }
+
+  .activity-filters {
+    grid-template-columns:
+      1fr;
+  }
+
+  .filter-search {
+    grid-column: auto;
+  }
+
+  .table-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .table-actions {
+    width: 100%;
+  }
+
+  .refresh-button,
+  .export-button {
+    flex: 1;
+  }
+
+}
+/* =========================================================
+   AQARY SMART - ACTIVITY LOG FINAL VISUAL OVERRIDE
+   ========================================================= */
+
+/* الصفحة بالكامل */
+.activity-page {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(39, 123, 96, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #022c25 0%,
+      #003b30 48%,
+      #002820 100%
+    );
+}
+
+/* =========================================================
+   WATERMARK - شعار عقاري سمارت خلف الصفحة كلها
+   ========================================================= */
+
+.activity-page::before {
+  content: "";
+
+  position: fixed;
+  z-index: -1;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(720px, 62vw);
+  height: min(720px, 62vw);
+
+  transform: translate(-50%, -50%);
+
+  background-image: url("/aqar-smart-logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.055;
+
+  pointer-events: none;
+
+  filter:
+    saturate(0.55)
+    brightness(1.05);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.activity-hero {
+  min-height: 180px;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 48, 39, 0.96),
+      rgba(0, 65, 52, 0.92)
+    ),
+    url("/aqar-smart-background.png");
+
+  background-size: cover;
+  background-position: center;
+
+  border:
+    1px solid rgba(211, 168, 47, 0.65);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.22),
+    inset 0 0 80px rgba(0, 0, 0, 0.16);
+}
+
+
+/* طبقة إضاءة */
+.activity-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(218, 177, 52, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 35, 29, 0.15),
+      rgba(0, 35, 29, 0.25)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   العنوان في المنتصف تمامًا
+   ========================================================= */
+
+.activity-hero-content {
+  position: relative;
+  z-index: 2;
+
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px 120px;
+
+  text-align: center;
+}
+
+
+/* النص كله في المنتصف */
+.activity-hero-text {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.erp-badge {
+  margin-bottom: 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 16px;
+
+  border:
+    1px solid rgba(215, 173, 53, 0.55);
+
+  border-radius: 30px;
+
+  background:
+    rgba(22, 54, 43, 0.78);
+
+  color: #e5c84d;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   العنوان
+   ========================================================= */
+
+.activity-hero h1 {
+  margin: 0;
+
+  font-size: clamp(32px, 3vw, 44px);
+
+  font-weight: 950;
+
+  line-height: 1.2;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  text-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.38);
+}
+
+
+/* =========================================================
+   الوصف
+   ========================================================= */
+
+.activity-hero p {
+  margin: 9px 0 0;
+
+  max-width: 650px;
+
+  color:
+    rgba(238, 244, 238, 0.78);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   أيقونة سجل النظام
+   ========================================================= */
+
+.activity-hero-icon {
+  position: absolute;
+
+  left: 30px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid rgba(221, 177, 49, 0.75);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 92, 68, 0.82),
+      rgba(19, 57, 44, 0.78)
+    );
+
+  color: #e8c650;
+
+  box-shadow:
+    inset 0 0 25px rgba(226, 182, 48, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   البطاقات فوق الـ watermark
+   ========================================================= */
+
+.activity-stats,
+.activity-filters,
+.activity-table-card {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   تحسين خفيف للشفافية
+   ========================================================= */
+
+.stat-card,
+.activity-filters,
+.activity-table-card {
+  backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.table-header {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .activity-page::before {
+    width: 520px;
+    height: 520px;
+
+    opacity: 0.045;
+  }
+
+  .activity-hero-content {
+    padding: 25px 95px;
+  }
+
+  .activity-hero-icon {
+    left: 20px;
+
+    width: 62px;
+    height: 62px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .activity-page::before {
+    width: 400px;
+    height: 400px;
+
+    opacity: 0.035;
+  }
+
+  .activity-hero {
+    min-height: 175px;
+
+    border-radius: 18px;
+  }
+
+  .activity-hero-content {
+    min-height: 175px;
+
+    padding: 22px 70px;
+  }
+
+  .activity-hero-icon {
+    left: 12px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 15px;
+  }
+
+  .activity-hero h1 {
+    font-size: 28px;
+  }
+
+  .activity-hero p {
+    font-size: 11px;
+
+    line-height: 1.7;
+  }
+
+  .erp-badge {
+    font-size: 9px;
+    padding: 5px 12px;
+  }
+}

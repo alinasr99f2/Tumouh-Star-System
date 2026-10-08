@@ -1,0 +1,449 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+/* =========================================
+   AQARY SMART - GLOBAL IDENTITY
+   الهوية العامة لنظام عقاري سمارت
+   ========================================= */
+
+:root {
+  --aqar-bg-primary: #031f1a;
+  --aqar-bg-secondary: #062d25;
+  --aqar-bg-surface: #08382e;
+
+  --aqar-green: #064e3b;
+  --aqar-green-light: #0b6650;
+  --aqar-green-border: rgba(45, 180, 135, 0.28);
+
+  --aqar-gold: #f6d878;
+  --aqar-gold-primary: #d4ad4d;
+  --aqar-gold-border: rgba(212, 173, 77, 0.65);
+
+  --aqar-text-primary: #ffffff;
+  --aqar-text-secondary: #b4cec5;
+  --aqar-text-muted: #789c91;
+}
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   HTML & BODY
+   ========================================= */
+
+html {
+  direction: rtl;
+  min-height: 100%;
+  background: var(--aqar-bg-primary);
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: "Cairo", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(18, 91, 70, 0.18),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #031f1a 0%,
+      #052a23 50%,
+      #021a16 100%
+    );
+
+  color: var(--aqar-text-primary);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   ROOT APPLICATION
+   ========================================= */
+
+#root {
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* =========================================
+   SELECTION
+   ========================================= */
+
+::selection {
+  background: rgba(212, 173, 77, 0.35);
+  color: #ffffff;
+}
+
+/* =========================================
+   SCROLLBAR - AQARY SMART
+   ========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #031f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #0c5b47,
+    #a78332
+  );
+
+  border-radius: 999px;
+  border: 2px solid #031f1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4ad4d;
+}
+
+/* =========================================
+   GLOBAL LINKS
+   ========================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   GLOBAL BUTTONS
+   ========================================= */
+
+button {
+  font-family: inherit;
+}
+
+/* =========================================
+   GLOBAL INPUTS
+   ========================================= */
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* =========================================
+   GLOBAL FOCUS
+   ========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--aqar-gold);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   LOGO ANIMATION
+   حركة لوجو الشركة
+   ========================================= */
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-15px) scale(1.03);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-logo-float {
+  animation: logoFloat 12s ease-in-out infinite;
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================
+   AQARY SMART - RESPONSIVE LAYOUT
+   ضبط المسافات تلقائيًا حسب حجم الشاشة
+   ========================================= */
+
+/* منع العناصر من الخروج أفقيًا */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* تحسين التعامل مع الصور والعناصر */
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+/* الحاويات الرئيسية */
+main,
+section,
+article {
+  max-width: 100%;
+}
+
+/* =========================================
+   LAPTOP / SMALL DESKTOP
+   ========================================= */
+
+@media (max-width: 1400px) {
+  /* تقليل المسافات الخارجية */
+  .p-8 {
+    padding: 1.5rem !important;
+  }
+
+  .px-8 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .py-8 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .gap-8 {
+    gap: 1.5rem !important;
+  }
+
+  .gap-6 {
+    gap: 1.25rem !important;
+  }
+}
+
+/* =========================================
+   LAPTOP 1280px
+   ========================================= */
+
+@media (max-width: 1280px) {
+  .p-8 {
+    padding: 1.25rem !important;
+  }
+
+  .px-8 {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .gap-8 {
+    gap: 1.25rem !important;
+  }
+
+  .gap-6 {
+    gap: 1rem !important;
+  }
+
+  /* منع البطاقات من الضغط الزائد */
+  .grid {
+    min-width: 0;
+  }
+
+  /* منع النصوص الطويلة من كسر التصميم */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  span {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================
+   SMALL LAPTOP
+   ========================================= */
+
+@media (max-width: 1100px) {
+  .p-8 {
+    padding: 1rem !important;
+  }
+
+  .px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-8 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .gap-8,
+  .gap-6 {
+    gap: 0.875rem !important;
+  }
+
+  /* الأزرار لا تختفي بسبب ضيق المساحة */
+  button {
+    max-width: 100%;
+  }
+
+  /* الحقول */
+  input,
+  textarea,
+  select {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   SMALL SCREEN
+   ========================================= */
+
+@media (max-width: 900px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* تقليل المسافات أكثر */
+  .p-8 {
+    padding: 0.75rem !important;
+  }
+
+  .px-8 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .gap-8,
+  .gap-6 {
+    gap: 0.75rem !important;
+  }
+
+  /* السماح للجداول بالتمرير بدل كسر الصفحة */
+  table {
+    min-width: max-content;
+  }
+
+  .overflow-x-auto {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* =========================================
+   VERY SMALL SCREEN
+   ========================================= */
+
+@media (max-width: 640px) {
+  .p-8,
+  .p-6 {
+    padding: 0.625rem !important;
+  }
+
+  .px-8,
+  .px-6 {
+    padding-left: 0.625rem !important;
+    padding-right: 0.625rem !important;
+  }
+
+  .py-8,
+  .py-6 {
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+  }
+
+  .gap-8,
+  .gap-6,
+  .gap-4 {
+    gap: 0.625rem !important;
+  }
+
+  /* العناوين */
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 4vw, 1.875rem);
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  }
+}
+
+/* =========================================
+   SAFETY - العناصر لا تختفي بسبب overflow
+   ========================================= */
+
+.flex {
+  min-width: 0;
+}
+
+.flex-1 {
+  min-width: 0;
+}
+
+.grid > * {
+  min-width: 0;
+}
+
+/* النصوص الطويلة */
+.break-words {
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   MODALS
+   ========================================= */
+
+[role="dialog"] {
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+}
+
+/* =========================================
+   ACCESSIBILITY / ZOOM SAFETY
+   ========================================= */
+
+/*
+  لا نستخدم zoom أو scale على body/root.
+  المتصفح هو المسؤول عن Zoom،
+  والواجهة تتكيف تلقائيًا مع المساحة المتاحة.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}

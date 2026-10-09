@@ -1521,3 +1521,26 @@
     padding: 5px 12px;
   }
 }
+
+/* Additions for functional date filters; existing visual styles remain unchanged. */
+.date-range input[type="date"] {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #e8eee9;
+  color-scheme: dark;
+  font-family: inherit;
+  font-size: 10px;
+}
+.date-range input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.75;
+}
+.refresh-button:disabled,
+.export-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}

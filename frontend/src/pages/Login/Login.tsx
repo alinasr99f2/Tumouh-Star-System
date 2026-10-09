@@ -680,7 +680,7 @@ export default function Login() {
 
             <div className="login-footer">
               <p>© عقاري سمارت. جميع الحقوق محفوظة.</p>
-              <span>Aqar Smart Real Estate Management System</span>
+              <span>Aqary Smart Real Estate Management System</span>
             </div>
           </section>
 

@@ -57,6 +57,7 @@ import {
   BriefcaseBusiness,
 
 } from "lucide-react";
+import { logActivity } from "../ActivityLog/activityLogger";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -1207,7 +1208,13 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
       setUsers((current) => [newUser, ...current]);
 
-      setNewName("");
+      
+      void logActivity({
+        action: "add",
+        section: "إدارة المستخدمين",
+        details: `إضافة مستخدم جديد: ${newUser.name} (${newUser.email}) — الدور: ${newUser.role}`,
+      });
+setNewName("");
 
       setNewEmail("");
 
@@ -1303,6 +1310,12 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
 
       if (error) throw error;
+
+      void logActivity({
+        action: "delete",
+        section: "إدارة المستخدمين",
+        details: `حذف المستخدم: ${deleteUserTarget.name} (${deleteUserTarget.email})`,
+      });
 
       await deleteUserAvatar(deleteUserTarget.id);
 
@@ -1446,7 +1459,13 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
     // استخدم القيمة التي أعادتها قاعدة البيانات بدل الاعتماد على الحالة المحلية فقط.
     const persistedPermissions = normalizePermissions(savedRow.permissions);
 
-    setUsers((current) =>
+    
+    void logActivity({
+      action: "permission",
+      section: "إدارة الصلاحيات",
+      details: `تغيير صلاحية "${key}" للمستخدم ${previousUser.name}: ${persistedPermissions[key] ? "تفعيل" : "تعطيل"}`,
+    });
+setUsers((current) =>
 
       current.map((user) =>
         user.id === id
@@ -1642,7 +1661,13 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
       if (updateError) throw updateError;
 
-      setCurrentPassword("");
+      
+      void logActivity({
+        action: "edit",
+        section: "الأمان",
+        details: "تغيير كلمة مرور الحساب الحالي بنجاح",
+      });
+setCurrentPassword("");
       setNewCurrentPassword("");
       alert("تم تغيير كلمة المرور بنجاح.");
     } catch (error) {
@@ -1781,7 +1806,13 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
 
 
-      setEditingUser(null);
+      
+      void logActivity({
+        action: "edit",
+        section: "إدارة المستخدمين",
+        details: `تعديل بيانات المستخدم: ${updatedUser.name} (${updatedUser.email}) — الدور: ${updatedUser.role} — الحالة: ${updatedUser.active ? "نشط" : "غير نشط"}`,
+      });
+setEditingUser(null);
 
       alert("تم حفظ تعديلات المستخدم في قاعدة البيانات.");
 
@@ -2250,9 +2281,8 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
               {(Object.keys(roleMeta) as Role[]).map((role) => {
 
-                const meta = roleMeta[role];
-
-                const Icon = meta.icon;
+                const meta = roleMeta[role] ?? roleMeta["موظف"];
+const Icon = meta?.icon ?? UserCog;
 
 
 
@@ -3065,7 +3095,7 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
                   )}
 
                   {group.sections?.map((section) => {
-                    const SectionIcon = section.icon;
+                    const SectionIcon = section?.icon ?? Building2;
                     return (
                       <div key={section.key} className="rounded-2xl border border-white/10 bg-white/[0.02] p-3">
                         <div className="mb-3 flex items-center justify-between gap-3 border-b border-white/[0.07] pb-2">
@@ -3898,7 +3928,7 @@ function PermissionGroupCard({
               )}
 
               {sections?.map((section) => {
-                const SectionIcon = section.icon;
+                const SectionIcon = section?.icon ?? Building2;
                 return (
                   <div key={section.key} className="rounded-2xl border border-white/10 bg-white/[0.02] p-3">
                     <div className="mb-3 flex items-center justify-between gap-3 border-b border-white/[0.07] pb-2">

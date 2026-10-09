@@ -280,6 +280,15 @@ const roleMeta: Record<
 
 };
 
+// بعض السجلات القديمة قد تحتوي على دور غير موجود في roleMeta.
+// نستخدم "موظف" كقيمة آمنة بدلًا من إسقاط الصفحة بالكامل.
+const normalizeRole = (value: unknown): Role => {
+  const role = String(value ?? "").trim();
+  return Object.prototype.hasOwnProperty.call(roleMeta, role)
+    ? (role as Role)
+    : "موظف";
+};
+
 
 
 type PermissionItem = { key: PermissionKey; title: string };
@@ -847,7 +856,7 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
   email: String(row.email ?? ""),
 
-  role: (row.role as Role) ?? "موظف",
+  role: normalizeRole(row.role),
 
   active: Boolean(row.active),
 
@@ -1185,7 +1194,7 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
         email: String(insertedUser.email ?? ""),
 
-        role: insertedUser.role as Role,
+        role: normalizeRole(insertedUser.role),
 
         active: Boolean(insertedUser.active),
         avatar_url: avatarUrl,
@@ -1749,7 +1758,7 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
         email: String(data.email ?? ""),
 
-        role: data.role as Role,
+        role: normalizeRole(data.role),
 
         active: Boolean(data.active),
         avatar_url: updatedAvatarUrl,
@@ -2694,9 +2703,9 @@ const editAvatarInputRef = useRef<HTMLInputElement | null>(null);
 
                 {filteredUsers.map((user, index) => {
 
-                  const meta = roleMeta[user.role];
+                  const meta = roleMeta[user.role] ?? roleMeta["موظف"];
 
-                  const RoleIcon = meta.icon;
+                  const RoleIcon = meta.icon ?? UserCog;
 
 
 
